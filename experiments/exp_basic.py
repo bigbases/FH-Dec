@@ -1,15 +1,14 @@
 import os
 import torch
-from model import Transformer, iTransformer, Autoformer
+from model import TimeMixer, iTransformer
 from decomposer import FHDec
 
 class Exp_Basic(object):
     def __init__(self, args):
         self.args = args
         self.model_dict = {
-            'Transformer': Transformer,
+            'TimeMixer': TimeMixer,
             'iTransformer': iTransformer,
-            'Autoformer': Autoformer,
         }
         self.decomposer = {
             'FHDec': FHDec

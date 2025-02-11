@@ -4,16 +4,16 @@ if [ ! -d "./logs" ]; then
     mkdir ./logs
 fi
 
-if [ ! -d "./logs/FreDec" ]; then
-    mkdir ./logs/FreDec
+if [ ! -d "./logs/FHDec" ]; then
+    mkdir ./logs/FHDec
 fi
 
 data_name=custom
-decomposer_name=FreDec
+decomposer_name=FHDec
 
-for pred_len in 12 24 48 96
+for pred_len in 12 24 48
 do
-for model_name in Fredformer
+for model_name in TimeMixer iTransformer
 do
     # model_name에 former가 포함되어 있지 않으면 label_len=0으로 설정
     if [[ $model_name != *"former"* ]]; then
@@ -25,7 +25,7 @@ do
       --is_training 1 \
       --root_path ./data/ \
       --data_path exchange.csv \
-      --model_id FreDec_exchange_96_$pred_len \
+      --model_id FHDec_exchange_96_$pred_len \
       --model $model_name \
       --is_decomp 1 \
       --decomposer $decomposer_name \
@@ -52,6 +52,6 @@ do
       --cf_heads 8 \
       --cf_mlp 96 \
       --individual 0\
-      --itr 1 --batch_size 32 --learning_rate 0.001 >logs/FreDec/$model_name'_'$data_name'_96_'$pred_len.log
+      --itr 1 --batch_size 32 --learning_rate 0.001 >logs/FHDec/$model_name'_'$data_name'_96_'$pred_len.log
 done
 done

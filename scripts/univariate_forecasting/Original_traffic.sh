@@ -13,7 +13,7 @@ data_name=custom
 
 for pred_len in 12 24 48
 do
-for model_name in Fredformer
+for model_name in TimeMixer iTransformer
 do
     # model_name에 former가 포함되어 있지 않으면 label_len=0으로 설정
     if [[ $model_name != *"former"* ]]; then
