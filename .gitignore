@@ -1,0 +1,12 @@
+checkpoints/
+data/
+logs/
+results/
+figures/
+test_results/
+result_long_term_forecast.txt
+result_short_term_forecast.txt
+nohup.out
+doodle.ipynb
+model_repo/
+__pycache__/
